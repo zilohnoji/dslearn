@@ -1,6 +1,7 @@
 package com.donatoordep.dslearn.entities;
 
 import com.donatoordep.dslearn.builders.ContentAbstractBuilder;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
@@ -8,7 +9,10 @@ import jakarta.persistence.Table;
 @Table(name = "tb_content")
 public class Content extends Lesson {
 
+    @Column(columnDefinition = "TEXT")
     private String textContent;
+
+    @Column(columnDefinition = "TEXT")
     private String videoUri;
 
     protected Content() {

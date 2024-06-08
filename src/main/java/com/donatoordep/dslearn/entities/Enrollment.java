@@ -2,13 +2,13 @@ package com.donatoordep.dslearn.entities;
 
 import com.donatoordep.dslearn.builders.EnrollmentAbstractBuilder;
 import com.donatoordep.dslearn.entities.pk.EnrollmentPk;
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_enrollment")
@@ -24,6 +24,9 @@ public class Enrollment {
     private Instant refundMoment;
     private boolean available;
     private boolean onlyUpdate;
+
+    @ManyToMany(mappedBy = "enrollmentsDone")
+    private Set<Lesson> lessonsDone = new HashSet<>();
 
     protected Enrollment() {
     }
@@ -85,6 +88,10 @@ public class Enrollment {
         public void reset() {
             this.entity = new Enrollment();
         }
+    }
+
+    public Set<Lesson> getLessonsDone() {
+        return lessonsDone;
     }
 
     public User getStudent() {
