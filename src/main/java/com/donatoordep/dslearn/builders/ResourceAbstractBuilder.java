@@ -12,7 +12,7 @@ public interface ResourceAbstractBuilder extends Builder<Resource> {
 
     ResourceAbstractBuilder description(String description);
 
-    ResourceAbstractBuilder position(String position);
+    ResourceAbstractBuilder position(Integer position);
 
     ResourceAbstractBuilder imgUri(String imgUri);
 
