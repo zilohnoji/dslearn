@@ -1,4 +1,4 @@
-package com.donatoordep.dslearn.configuration.aop;
+package com.donatoordep.dslearn.services.validations.user;
 
 
 import org.aspectj.lang.annotation.Pointcut;

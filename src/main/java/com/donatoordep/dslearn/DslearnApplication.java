@@ -1,5 +1,6 @@
 package com.donatoordep.dslearn;
 
+import com.donatoordep.dslearn.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

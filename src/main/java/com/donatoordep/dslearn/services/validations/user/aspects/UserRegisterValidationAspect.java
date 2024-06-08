@@ -1,7 +1,7 @@
-package com.donatoordep.dslearn.configuration.aop.aspects;
+package com.donatoordep.dslearn.services.validations.user.aspects;
 
-import com.donatoordep.dslearn.configuration.aop.PointcutDefinitions;
-import com.donatoordep.dslearn.configuration.aop.annotations.UserRegisterValidate;
+import com.donatoordep.dslearn.services.validations.user.PointcutDefinitions;
+import com.donatoordep.dslearn.services.validations.user.annotations.UserRegisterValidate;
 import com.donatoordep.dslearn.repositories.UserRepository;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -22,6 +22,5 @@ public class UserRegisterValidationAspect extends PointcutDefinitions {
 
     @Before("inServiceLayer() && @annotation(validation)")
     public void userRegisterValidate(UserRegisterValidate validation, JoinPoint joinPoint){
-
     }
 }
