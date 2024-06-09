@@ -3,7 +3,9 @@ package com.donatoordep.dslearn.entities;
 import com.donatoordep.dslearn.builders.UserAbstractBuilder;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -23,6 +25,9 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Set<Role> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Notification> notifications = new ArrayList<>();
 
     protected User() {
     }
@@ -84,6 +89,18 @@ public class User {
 
     public String getName() {
         return name;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void addNotification(Notification notification) {
+        this.notifications.add(notification);
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
     }
 
     public void setName(String name) {
