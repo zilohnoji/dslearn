@@ -23,6 +23,9 @@ public class Offer {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant endMoment;
 
+    @OneToMany(mappedBy = "offer")
+    private List<Topic> topics = new ArrayList<>();
+
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
@@ -89,6 +92,10 @@ public class Offer {
 
     public Long getId() {
         return id;
+    }
+
+    public List<Topic> getTopics() {
+        return topics;
     }
 
     public void setId(Long id) {
